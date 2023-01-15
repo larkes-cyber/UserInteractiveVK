@@ -6,7 +6,9 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.vkcupsteptwo.ui.screen.compare_screen.CompareScreen
 import com.example.vkcupsteptwo.ui.screen.drag_text_variants_screen.DragTextVariantsScreen
+import com.example.vkcupsteptwo.ui.screen.fill_gaps_screen.FillGapsScreen
 import com.example.vkcupsteptwo.ui.screen.questions_screen.QuestionsScreen
+import com.example.vkcupsteptwo.ui.screen.rate_article_screen.RateArticleScreen
 
 @Composable
 fun Navigation(navHostController: NavHostController) {
@@ -20,6 +22,12 @@ fun Navigation(navHostController: NavHostController) {
         }
         composable(route = Screen.DragVariantsTextScreen.route){
             DragTextVariantsScreen()
+        }
+        composable(route = Screen.FillGapsScreen.route){
+            FillGapsScreen()
+        }
+        composable(route = Screen.ArticleRateScreen.route){
+            RateArticleScreen()
         }
     }
 

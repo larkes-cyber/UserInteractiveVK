@@ -16,7 +16,7 @@ import com.example.vkcupsteptwo.ui.theme.CardStrokeColor
 fun WrapperPostComponent(
     group: GroupInfo,
     postComment:String = "",
-    actionsInfo: ActionsInfo,
+    actionsInfo: ActionsInfo? = null,
     content: @Composable() () -> Unit
 ) {
     Card(
@@ -52,11 +52,17 @@ fun WrapperPostComponent(
                     content()
                 }
             }
-            Box(Modifier
-                .padding(start = 24.dp)
-                .padding(vertical = 13.dp)
-            ) {
-                ActionsBarComponent(actionsInfo.likes,actionsInfo.comments,actionsInfo.reposts)
+            if(actionsInfo != null) {
+                Box(Modifier
+                    .padding(start = 24.dp)
+                    .padding(vertical = 13.dp)
+                ) {
+                    ActionsBarComponent(actionsInfo.likes,
+                        actionsInfo.comments,
+                        actionsInfo.reposts)
+                }
+            }else{
+                Spacer(modifier = Modifier.height(24.dp))
             }
         }
     }

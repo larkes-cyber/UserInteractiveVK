@@ -78,8 +78,8 @@ fun CompareFormComponent(
 
       WrapperPostComponent(
           group = compareForm.group,
-          actionsInfo = ActionsInfo(12,12,12),
-          postComment = "пиздец а не компонент"
+          actionsInfo = compareForm.actionsInfo,
+          postComment = "попробуйте кайф"
       ) {
           //Offset(272f, 240f)
           //

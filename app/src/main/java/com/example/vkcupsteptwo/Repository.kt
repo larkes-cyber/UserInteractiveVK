@@ -2,8 +2,10 @@ package com.example.vkcupsteptwo
 
 import com.example.vkcupsteptwo.model.*
 import com.example.vkcupsteptwo.untils.Constants.CompareScreen
+import com.example.vkcupsteptwo.untils.Constants.FillTextScreen
 import com.example.vkcupsteptwo.untils.Constants.QuestionsScreen
-import com.example.vkcupsteptwo.untils.Constants.TextExamples
+import com.example.vkcupsteptwo.untils.Constants.RateArticleScreen
+import com.example.vkcupsteptwo.untils.Constants.TextExamplesScreen
 import kotlinx.coroutines.delay
 
 class Repository {
@@ -22,7 +24,8 @@ class Repository {
                 postData = PostData(
                     title = "Какой стить в дизайне вам нравится больше?",
                     postKind = "Публичный опрос"
-                )
+                ),
+                actionsInfo = ActionsInfo(12,12,12)
             )
         },
         compareItems = (1..100).map {
@@ -38,12 +41,47 @@ class Repository {
                 postData = PostData(
                     title = "Сопоставьте элементы",
                     postKind = "Публичный опрос"
-                )
+                ),
+                actionsInfo = ActionsInfo(12,12,12)
+            )
+        },
+        textExamplesWithVariants = (1..100).map {
+            TextFormWithVariants(
+                variants = Pair("Текст & несколькими пропусками & вариантами несколькими пропусками & вариантами текст & несколькими пропусками", listOf("один","два","и","и")),
+                currentValue = 100,
+                count = it,
+                group = GroupInfo(
+                    name = "опросы)",
+                    icon = R.drawable.some_pict,
+                    date = "5 янв в 13:20"
+                ),
+                postData = PostData(
+                    title = "Заполните пропуски",
+                    postKind = "Публичный опрос"
+                ),
+                actionsInfo = ActionsInfo(12,12,12)
             )
         },
         textExamples = (1..100).map {
             TextForm(
-                variants = Pair("Текст & несколькими пропусками & вариантами несколькими пропусками & вариантами текст & несколькими пропусками", listOf("один","два","и","и")),
+                text = "Текст & несколькими пропусками & вариантами несколькими пропусками & вариантами текст & несколькими пропусками",
+                currentValue = 100,
+                count = it,
+                group = GroupInfo(
+                    name = "опросы)",
+                    icon = R.drawable.some_pict,
+                    date = "5 янв в 13:20"
+                ),
+                postData = PostData(
+                    title = "Заполните пропуски",
+                    postKind = "Публичный опрос"
+                ),
+                actionsInfo = ActionsInfo(12,12,12)
+            )
+        },
+        articleData = (1..100).map {
+            ArticleForm(
+                title = "Cтатья",
                 currentValue = 100,
                 count = it,
                 group = GroupInfo(
@@ -77,10 +115,24 @@ class Repository {
                     )
                 } else Result.success(emptyList())
             }
-            TextExamples -> {
+            TextExamplesScreen -> {
+                if (startingIndex + pageSize <= remoteDataSource.textExamplesWithVariants.size) {
+                    Result.success(
+                        remoteDataSource.textExamplesWithVariants.slice(startingIndex until startingIndex + pageSize)
+                    )
+                } else Result.success(emptyList())
+            }
+            FillTextScreen -> {
                 if (startingIndex + pageSize <= remoteDataSource.textExamples.size) {
                     Result.success(
                         remoteDataSource.textExamples.slice(startingIndex until startingIndex + pageSize)
+                    )
+                } else Result.success(emptyList())
+            }
+            RateArticleScreen -> {
+                if (startingIndex + pageSize <= remoteDataSource.articleData.size) {
+                    Result.success(
+                        remoteDataSource.articleData.slice(startingIndex until startingIndex + pageSize)
                     )
                 } else Result.success(emptyList())
             }

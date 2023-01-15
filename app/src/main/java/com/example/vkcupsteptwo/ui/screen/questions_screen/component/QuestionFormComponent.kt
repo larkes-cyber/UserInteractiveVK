@@ -35,7 +35,7 @@ fun QuestionFormComponent(
     WrapperPostComponent(
         group = data.group,
         postComment = "Вопрос:${data.count}/${data.currentValue}",
-        actionsInfo = ActionsInfo(12,12,12)
+        actionsInfo = data.actionsInfo
     ){
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,

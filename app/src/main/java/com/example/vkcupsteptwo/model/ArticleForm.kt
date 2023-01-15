@@ -1,10 +1,9 @@
 package com.example.vkcupsteptwo.model
 
-data class TextForm(
+data class ArticleForm(
     val  currentValue:Int,
     val  count:Int,
-    val  text:String,
+    val  title:String,
     val  group: GroupInfo,
-    val  postData: PostData,
-    val actionsInfo: ActionsInfo
+    val  postData: PostData
 )

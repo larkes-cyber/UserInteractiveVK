@@ -1,5 +1,6 @@
 package com.example.vkcupsteptwo.ui.component
 
+import android.util.Log
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
@@ -72,10 +73,11 @@ fun ButtonActionBar(
 fun LikeButtonComponent(
     title:String
 ){
-
     val selectedState = rememberSaveable {
         mutableStateOf(false)
     }
+
+    val titleNum = title.toInt()
 
     Button(
         modifier = Modifier.height(33.dp),
@@ -113,7 +115,7 @@ fun LikeButtonComponent(
             }
             Spacer(modifier = Modifier.width(3.dp))
             Text(
-                text = title,
+                text = if(selectedState.value) (titleNum+1).toString() else title,
                 fontSize = 12.sp,
                 color = if(selectedState.value) SecondLikeLayerColor else ButtonActionContentColor,
                 fontWeight = FontWeight.Bold,

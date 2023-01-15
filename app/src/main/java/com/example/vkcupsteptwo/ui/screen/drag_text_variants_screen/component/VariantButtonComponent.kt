@@ -35,6 +35,7 @@ fun VariantButtonComponent(
         mutableStateOf(false)
     }
 
+
     if(!isSelected)
     Button(
         onClick = {
@@ -55,13 +56,18 @@ fun VariantButtonComponent(
             color = if(onClickState.value) Color.White else ComparableButtonStrokeColor
         )
     }
-    else Box(modifier = Modifier.padding(vertical = 1.dp, horizontal = 8.dp).background(Color.Transparent)) {
-        Text(
-            text =  title,
-            fontFamily = montserrat,
-            fontWeight = FontWeight.Medium,
-            fontSize = 13.sp,
-            color = Color.Transparent
-        )
+    else {
+        onClickState.value = false
+        Box(modifier = Modifier
+            .padding(vertical = 1.dp, horizontal = 8.dp)
+            .background(Color.Transparent)) {
+            Text(
+                text = title,
+                fontFamily = montserrat,
+                fontWeight = FontWeight.Medium,
+                fontSize = 13.sp,
+                color = Color.Transparent
+            )
+        }
     }
 }

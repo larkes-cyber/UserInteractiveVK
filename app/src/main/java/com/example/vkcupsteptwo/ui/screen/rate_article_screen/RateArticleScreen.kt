@@ -1,4 +1,4 @@
-package com.example.vkcupsteptwo.ui.screen.drag_text_variants_screen
+package com.example.vkcupsteptwo.ui.screen.rate_article_screen
 
 import android.util.Log
 import androidx.compose.foundation.background
@@ -10,14 +10,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.vkcupsteptwo.ui.component.TitleHeaderComponent
+import com.example.vkcupsteptwo.ui.screen.drag_text_variants_screen.DragTextVariantsViewModel
 import com.example.vkcupsteptwo.ui.screen.drag_text_variants_screen.component.DragVariantsFormComponent
+import com.example.vkcupsteptwo.ui.screen.rate_article_screen.component.RateArticleFormComponent
 import com.example.vkcupsteptwo.ui.theme.BackgroundColor
 import com.example.vkcupsteptwo.ui.theme.SelectedNavItemColor
 
 @Composable
-fun DragTextVariantsScreen() {
+fun RateArticleScreen() {
 
-    val viewModel = viewModel<DragTextVariantsViewModel>()
+    val viewModel = viewModel<RateArticleViewModel>()
     val state = viewModel.state
 
 
@@ -32,15 +34,12 @@ fun DragTextVariantsScreen() {
         }
 
         items(state.items.size){ i ->
-            Log.d("item_item","item.toString()")
             val item = state.items[i]
-            Log.d("item_item",item.toString())
             if(i >= state.items.size - 1 && !state.endReached && !state.isLoading){
                 viewModel.loadNextItem()
             }
             Spacer(modifier = Modifier.height(10.dp))
-            DragVariantsFormComponent(textFormWithVariants = item)
-
+            RateArticleFormComponent(articleForm = item)
         }
         item {
             if(state.isLoading){

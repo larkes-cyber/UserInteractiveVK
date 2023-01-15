@@ -5,5 +5,6 @@ data class QuestionForm(
   val  currentValue:Int,
   val  count:Int,
   val  group: GroupInfo,
-  val  postData: PostData
+  val  postData: PostData,
+  val actionsInfo: ActionsInfo
 )

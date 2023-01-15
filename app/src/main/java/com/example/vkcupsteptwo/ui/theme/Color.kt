@@ -37,3 +37,5 @@ val SelectedFirstComparableColor = Color(0xFFF2F3F5)
 
 val SelectedPasteButton = Color(0xFFB8D0E7)
 val SelectedTextPasteButton = Color(0xFFFFFFFF)
+
+val TopArticleLayoutColor = Color(0x5FFFFFF)

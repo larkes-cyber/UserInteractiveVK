@@ -54,7 +54,7 @@ class MainActivity : ComponentActivity() {
                                 BottomNavItem(
                                     icon = R.drawable.ic_baseline_star_border_24,
                                     name = "Оценки",
-                                    route = "article_grade_screen"
+                                    route = "article_rate_screen"
                                 )
                             ),
                             navController = navController

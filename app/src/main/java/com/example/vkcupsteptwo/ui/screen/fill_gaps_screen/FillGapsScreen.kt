@@ -1,4 +1,4 @@
-package com.example.vkcupsteptwo.ui.screen.drag_text_variants_screen
+package com.example.vkcupsteptwo.ui.screen.fill_gaps_screen
 
 import android.util.Log
 import androidx.compose.foundation.background
@@ -9,15 +9,19 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavController
 import com.example.vkcupsteptwo.ui.component.TitleHeaderComponent
+import com.example.vkcupsteptwo.ui.screen.drag_text_variants_screen.DragTextVariantsViewModel
 import com.example.vkcupsteptwo.ui.screen.drag_text_variants_screen.component.DragVariantsFormComponent
+import com.example.vkcupsteptwo.ui.screen.fill_gaps_screen.component.FillGapsFormComponent
 import com.example.vkcupsteptwo.ui.theme.BackgroundColor
 import com.example.vkcupsteptwo.ui.theme.SelectedNavItemColor
 
-@Composable
-fun DragTextVariantsScreen() {
 
-    val viewModel = viewModel<DragTextVariantsViewModel>()
+@Composable
+fun FillGapsScreen(
+) {
+    val viewModel = viewModel<FillGapsViewModel>()
     val state = viewModel.state
 
 
@@ -28,7 +32,7 @@ fun DragTextVariantsScreen() {
     ){
 
         item{
-            TitleHeaderComponent("Вставить")
+            TitleHeaderComponent("Заполнить")
         }
 
         items(state.items.size){ i ->
@@ -39,7 +43,7 @@ fun DragTextVariantsScreen() {
                 viewModel.loadNextItem()
             }
             Spacer(modifier = Modifier.height(10.dp))
-            DragVariantsFormComponent(textFormWithVariants = item)
+            FillGapsFormComponent(textForm = item)
 
         }
         item {
@@ -61,5 +65,4 @@ fun DragTextVariantsScreen() {
         }
 
     }
-
 }
