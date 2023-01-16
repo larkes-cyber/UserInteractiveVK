@@ -18,7 +18,7 @@ class Repository {
                 count = it,
                 group = GroupInfo(
                     name = "опросы)",
-                    icon = R.drawable.some_pict,
+                    icon = R.drawable.fifth_groupe_icon,
                     date = "5 янв в 13:20"
                 ),
                 postData = PostData(
