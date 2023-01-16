@@ -39,7 +39,7 @@ fun RateArticleFormComponent(
 
     WrapperPostComponent(
         group = articleForm.group,
-        postComment = "Как вам статья?"
+        postComment = articleForm.postData.comment
     ) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,

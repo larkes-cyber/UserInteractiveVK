@@ -79,7 +79,7 @@ fun CompareFormComponent(
       WrapperPostComponent(
           group = compareForm.group,
           actionsInfo = compareForm.actionsInfo,
-          postComment = "попробуйте кайф"
+          postComment = compareForm.postData.comment
       ) {
           //Offset(272f, 240f)
           //

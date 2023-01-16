@@ -30,7 +30,7 @@ fun RateArticleScreen() {
     ){
 
         item{
-            TitleHeaderComponent("Вставить")
+            TitleHeaderComponent("Оцените статью")
         }
 
         items(state.items.size){ i ->

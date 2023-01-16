@@ -34,7 +34,7 @@ fun QuestionFormComponent(
     }
     WrapperPostComponent(
         group = data.group,
-        postComment = "Вопрос:${data.count}/${data.currentValue}",
+        postComment = data.postData.comment,
         actionsInfo = data.actionsInfo
     ){
         Column(

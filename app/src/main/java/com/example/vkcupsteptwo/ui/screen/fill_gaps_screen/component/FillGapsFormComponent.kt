@@ -64,7 +64,7 @@ fun FillGapsFormComponent(
     WrapperPostComponent(
         group = textForm.group,
         actionsInfo = textForm.actionsInfo,
-        postComment = "попробуйте кайф"
+        postComment = textForm.postData.comment
     ) {
 
         Column(

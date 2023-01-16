@@ -77,7 +77,7 @@ fun DragVariantsFormComponent(
     WrapperPostComponent(
         group = textFormWithVariants.group,
         actionsInfo = textFormWithVariants.actionsInfo,
-        postComment = "попробуйте кайф"
+        postComment = textFormWithVariants.postData.comment
     ) {
 
         Column(

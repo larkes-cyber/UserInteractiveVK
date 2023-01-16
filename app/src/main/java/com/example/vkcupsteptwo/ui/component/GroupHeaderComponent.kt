@@ -2,10 +2,13 @@ package com.example.vkcupsteptwo.ui.component
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Card
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -20,12 +23,18 @@ fun GroupHeaderComponent(
     groupInfo: GroupInfo
 ) {
     Row(verticalAlignment = Alignment.CenterVertically) {
-        Image(
-            painter = painterResource(id = groupInfo.icon),
-            contentDescription = "",
+        Card(
             modifier = Modifier.size(35.dp),
-            contentScale = ContentScale.Crop
-        )
+            shape = RoundedCornerShape(100f),
+            backgroundColor = Color.Transparent
+        ) {
+            Image(
+                painter = painterResource(id = groupInfo.icon),
+                contentDescription = "",
+                modifier = Modifier.size(35.dp),
+                contentScale = ContentScale.Crop
+            )
+        }
         Spacer(modifier = Modifier.width(8.dp))
         Column() {
             SubTitleComponent(
